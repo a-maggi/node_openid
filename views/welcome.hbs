@@ -1,0 +1,94 @@
+	<div class="container" style="margin-top:5%;">
+	 <ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item">
+	    <a class="nav-link active" id="idtokenformattable-tab" data-toggle="tab" href="#idtokenformattable" role="tab" aria-controls="idtokenformattable" aria-selected="true">Token</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" id="idtokenformatjson-tab" data-toggle="tab" href="#idtokenformatjson" role="tab" aria-controls="idtokenformatjson" aria-selected="false">Token (JSON)</a>
+	   </li>
+		<li class="nav-item">
+	    <a class="nav-link" id="tokenintrospection-tab" data-toggle="tab" href="#userinfo" role="tab" aria-controls="userinfo" aria-selected="false">User info</a>
+	  </li>
+		
+	</ul>
+	<div class="tab-content" id="myTabContent" style="overflow: hidden">
+	  <div class="tab-pane fade show active" id="idtokenformattable" role="tabpanel" aria-labelledby="idtoken-tab">
+			<div class="btn-group btn-group-sm btn-group-toggle mt-2 ml-2 mb-3" data-toggle="buttons">
+			  <label class="btn btn-outline-info active">
+			    <input type="radio" name="idtoken-claim" autocomplete="off" checked>Payload
+			  </label>
+			  <label class="btn btn-outline-info">
+			    <input type="radio" name="idtoken-claim" autocomplete="off"> Header
+			  </label>
+			</div>
+				<!-- getting all information from id_token -->
+	  		<table class="table table-hover">
+				<thead>
+					<tr style="color: #00b4c5;">
+						<th>Name</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+		        <tbody>
+								{{#each claims}}
+										<tr class="idtoken-claim">
+												<td>{{@key}}</td>
+												<td>{{this}}</td>
+										</tr>
+								{{/each}}
+
+				    {{#each token}}
+                        <tr class="idtoken-claim d-none">
+                            <td>{{@key}}</td>
+                            <td>{{this}}</td>
+                        </tr>
+                    {{/each}}
+
+	   			
+				</tbody>
+			</table>
+	  </div>
+	  <div class="tab-pane" id="idtokenformatjson" role="tabpanel" aria-labelledby="idtokenformatjson">
+		  <div class="btn-group btn-group-sm btn-group-toggle mt-2 ml-2 mb-3" data-toggle="buttons">
+		   	  <label class="btn btn-outline-info active">
+			    <input type="radio" name="idtoken-json" autocomplete="off" checked>Payload
+			  </label>
+			  <label class="btn btn-outline-info">
+			    <input type="radio" name="idtoken-json" autocomplete="off">Header
+			  </label>
+		  </div>
+		  <div>
+				<!-- showing full id_token JSON-->
+			  <code class="idtoken-json">
+                    {{ json claims }}
+			  </code>
+			  <code class="idtoken-json d-none">
+			  	    {{ json token }}
+			  </code>
+		 </div>
+		 
+	  </div>
+		 <div class="tab-pane" id="userinfo" role="tabpanel" aria-labelledby="userinfo">
+		  <!-- getting all information from id_token -->
+	  		<table class="table table-hover">
+				<thead>
+					<tr style="color: #00b4c5;">
+						<th>Name</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+		        <tbody>
+								{{#each userinfo}}
+										<tr class="idtoken-claim">
+												<td>{{@key}}</td>
+												<td>{{this}}</td>
+										</tr>
+								{{/each}}
+
+	   			
+				</tbody>
+			</table>
+		 </div>
+	  </div>
+	</div>
+ </div>

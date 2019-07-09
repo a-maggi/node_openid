@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Demo App</title>
+		<link rel="shortcut icon" href="resources/img/site_favicon.png">
+		<script src="https://icrypto-cdn.s3.amazonaws.com/js/jquery-1.9.1.min.js"></script>
+		<script src="resources/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="resources/css/app.css" />
+		<script type="text/javascript">
+			function getQueryString(param)
+			{
+				var urlParams = new URLSearchParams(window.location.search);
+				return urlParams.get(param);
+			}
+		</script>	
+	</head>
+	<body>
+		<header>
+			<div class="navbar">
+				<div class="container">
+					<img src="resources/img/site_logo.png">
+				</div>
+			</div>
+			<div class="container">
+				<div class="bg"></div>
+			</div>
+		</header>
+		<div class="container page-content">
+			<h3>Registered user: Enter</h3>
+			<p style="margin-top: 50">Click ENTER, in order to log in to myWIND.</p>
+			<form id="icrypto-form" onsubmit="javascript:void(0)">
+				<div class="form-group">
+					<a href="/login" class="btn btn-identicum">ENTER</a>
+				</div>
+			</form>
+
+		</div>
+	</body>
+</html>

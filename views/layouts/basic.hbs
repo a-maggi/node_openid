@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Demo App</title>
+		<link rel="shortcut icon" href="resources/img/site_favicon.png">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="https://icrypto-cdn.s3.amazonaws.com/js/jquery-1.9.1.min.js"></script>
+		<script src="/resources/js/jquery-3.2.1.slim.min.js"></script>
+	 	<script src="/resources/js/popper.min.js"></script>
+		<script src="/resources/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/css/app.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css">
+	</head>
+	<body>
+		<header>
+			<div class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand" href="#"><img src="/resources/img/site_logo.png"></a>
+					 <div class="navbar-text">
+						<div class="navbar-nav">
+							<a class="nav-link" href="#"><span class="fa fa-user"></span> {{userinfo.given_name}}</a>
+							<a class="nav-link" href="#"><span class="fa fa-user"></span> {{userinfo.family_name}}</a>
+							<a class="nav-link" href="/logout"><span class="fa fa-sign-out"></span> Logout</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="container page-content">
+			 {{{body}}}
+		</div>
+		<script type="text/javascript">
+	 	$(document).ready(function(){
+		    $(".btn-group .btn input").change(function() {
+		      $("." + $(this).attr('name')).toggleClass("d-none");
+    	    });
+		});
+	 </script>
+	</body>
+</html>

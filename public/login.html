@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Login</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+		<script src="https://icrypto-cdn.s3.amazonaws.com/js/jquery-1.9.1.min.js"></script>
+		<script src="https://icrypto-cdn.s3.amazonaws.com/js/integrations/icrypto-web-v3.min.js"></script>
+		<script src="https://icrypto-cdn.s3.amazonaws.com/js/integrations/sidas.min.js"></script>
+		<script src="resources/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="resources/css/app.css" />
+		<script type="text/javascript">
+			function getQueryString(param)
+			{
+				var urlParams = new URLSearchParams(window.location.search);
+				return urlParams.get(param);
+			}
+		</script>	
+	</head>
+	<body>
+		<header>
+			<div class="navbar">
+				<div class="container">
+					<img src="resources/img/site_logo.png">
+				</div>
+			</div>
+		</header>
+		<div class="container page-content">
+			<h3>Login</h3>
+			<p style="margin-top: 50px">
+				<p>Are you a registered user?<br>Please log in and go to the safe completion of your purchase</p>
+				<form id="icrypto-form" onsubmit="javascript:void(0)">
+					<div class="form-group w-25 mx-auto">
+						<label for="username">USERNAME</label>
+						<input type="text" class="form-control" name="username" id="username" autofocus="" required="">
+						<small id="usernameHelp" class="form-text">I forgot my username</small>
+					</div>
+					<div class="form-group w-25 mx-auto">
+						<label for="password">PASSWORD</label>
+						<input type="password" class="form-control" name="password" id="password" required="">
+						<small id="passwordHelp" class="form-text">I forgot my password</small>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-danger">CONNECT</button>
+						<small id="submitHelp" class="form-text">Registration</small>
+					</div>
+				</form>
+			</p>
+		
+
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function () {
+			var sidas = new Sidas(document.getElementById("icrypto-form"), {
+					//options...
+					waitTime: 600,
+					showTimer: true
+				}).init();
+			});
+		</script>
+	</body>
+</html>
+
+
